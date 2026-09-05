@@ -2,23 +2,40 @@ const Tour = require("./tourLib");
 
 const getAllTours = (req, res) => {
   const tours = Tour.getAll();
+
   res.json(tours);
 };
 
 const createTour = (req, res) => {
-  res.json({ message: "Hello from createTour" });
+  const { name, info, image, price, location } = req.body;
+
+  const tour = Tour.addOne(
+    name,
+    info,
+    image,
+    price,
+    location
+  );
+
+  res.status(201).json(tour);
 };
 
 const getTourById = (req, res) => {
-  res.json({ message: "Hello from getTourById" });
+  res.json({
+    message: `Hello from getTourById for tour ${req.params.tourId}`,
+  });
 };
 
 const updateTour = (req, res) => {
-  res.json({ message: "Hello from updateTour" });
+  res.json({
+    message: `Hello from updateTour for tour ${req.params.tourId}`,
+  });
 };
 
 const deleteTour = (req, res) => {
-  res.json({ message: "Hello from deleteTour" });
+  res.json({
+    message: `Hello from deleteTour for tour ${req.params.tourId}`,
+  });
 };
 
 module.exports = {
