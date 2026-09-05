@@ -21,7 +21,11 @@ const getAll = () => {
   return tours;
 };
 
-// Sample data for testing
+const findById = (id) => {
+  return tours.find((tour) => tour.id === Number(id)) || null;
+};
+
+// Sample tours
 addOne(
   "Paris in 7 Days",
   "Explore Paris.",
@@ -41,4 +45,5 @@ addOne(
 module.exports = {
   addOne,
   getAll,
+  findById,
 };
