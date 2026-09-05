@@ -13,9 +13,13 @@ const app = express();
 app.use(express.json());
 
 app.get("/tours", getAllTours);
+
 app.post("/tours", createTour);
+
 app.get("/tours/:tourId", getTourById);
+
 app.patch("/tours/:tourId", updateTour);
+
 app.delete("/tours/:tourId", deleteTour);
 
 const port = 4000;
